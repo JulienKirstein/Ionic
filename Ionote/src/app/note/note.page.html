@@ -1,28 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Classroom Notes</ion-title>
+    <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Note</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>{{classroom.class_name}}</ion-card-title>
+      <ion-card-title>Titre: {{note.title}}</ion-card-title>
+      <ion-card-title>Texte: {{note.content}}</ion-card-title>
+      <ion-card-title>Date: {{note.date}}</ion-card-title>
     </ion-card-header>
-
-    <ion-card-content>
-      <ion-card-subtitle>{{classroom.name}}</ion-card-subtitle>
-      <ul>
-        <li *ngFor="let student of classroom.students">{{student.student_name}}</li>
-      </ul>
-      <ion-buttons slot="primary">
-        <ion-button routerLink="/edit/{{classroom.id}}">
-          <ion-icon slot="icon-only" name="create"></ion-icon>
-        </ion-button>
-        <ion-button (click)="delete(classroom.id)">
-          <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-card-content>
   </ion-card>
 </ion-content>

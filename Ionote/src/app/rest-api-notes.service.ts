@@ -6,12 +6,12 @@ import { catchError, tap, map } from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://laboweb.ecam.be/notepad_s4/public/index.php/api/categories";
+const apiUrl = "http://laboweb.ecam.be/notepad_s4/public/index.php/api/notes";
 
 @Injectable({
   providedIn: 'root'
 })
-export class RestApiService {
+export class RestApiServiceNotes {
 
   constructor(private http: HttpClient) { }
 
@@ -35,20 +35,20 @@ export class RestApiService {
     return body || { };
   }
 
-  getClassroom(): Observable<any> {
+  getNotes(): Observable<any> {
     return this.http.get(apiUrl, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
-  getClassroomById(id: string): Observable<any> {
+  getNotesById(id: string): Observable<any> {
     const url = `${apiUrl}/${id}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
-  postClassroom(data): Observable<any> {
+  postNotes(data): Observable<any> {
     const url = `${apiUrl}/add_with_students`;
     return this.http.post(url, data, httpOptions)
       .pipe(
@@ -56,7 +56,7 @@ export class RestApiService {
       );
   }
 
-  updateClassroom(id: string, data): Observable<any> {
+  updateNotes(id: string, data): Observable<any> {
     const url = `${apiUrl}/${id}`;
     return this.http.put(url, data, httpOptions)
       .pipe(
@@ -64,7 +64,7 @@ export class RestApiService {
       );
   }
 
-  deleteClassroom(id: string): Observable<{}> {
+  deleteNotes(id: string): Observable<{}> {
     const url = `${apiUrl}/${id}`;
     return this.http.delete(url, httpOptions)
       .pipe(

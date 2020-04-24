@@ -1,5 +1,5 @@
 import { LoadingController } from '@ionic/angular';
-import { RestApiService } from '../rest-api.service';
+import { RestApiServiceCategories } from '../rest-api-categories.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,22 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesPage implements OnInit {
 
-    classrooms: any;
+    categories: any;
 
-    constructor(public api: RestApiService, public loadingController: LoadingController) { }
+    constructor(public api: RestApiServiceCategories, public loadingController: LoadingController) { }
 
     ngOnInit() {
     console.log("List page");
-    this.getClassrooms();
+    this.getCategories();
     }
 
-    async getClassrooms() {
+    async getCategories() {
     const loading = await this.loadingController.create();
     await loading.present();
-    await this.api.getClassroom()
+    await this.api.getCategories()
       .subscribe(res => {
         console.log(res);
-        this.classrooms = res;
+        this.categories = res;
         loading.dismiss();
       }, err => {
         console.log(err);

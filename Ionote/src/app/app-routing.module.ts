@@ -16,17 +16,13 @@ const routes: Routes = [
     loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule)
   },
   {
-    path: 'note',
-    loadChildren: () => import('./note/note.module').then( m => m.NotePageModule)
+    path: 'categorie/:id',
+    loadChildren: './categorie/categorie.module#CategoriePageModule'
   },
   {
-  path: 'note/:id',
-  loadChildren: './note/note.module#NotePageModule'
-  },
-  {
-    path: 'categorie',
-    loadChildren: () => import('./categorie/categorie.module').then( m => m.CategoriePageModule)
-  },
+    path: 'note/:id',
+    loadChildren: './note/note.module#NotePageModule'
+  }
 ];
 
 @NgModule({

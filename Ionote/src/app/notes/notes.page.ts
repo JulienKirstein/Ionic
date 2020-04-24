@@ -1,3 +1,5 @@
+import { LoadingController } from '@ionic/angular';
+import { RestApiServiceNotes } from '../rest-api-notes.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesPage implements OnInit {
 
-  constructor() { }
+    notes: any;
 
-  ngOnInit() {
-  }
+    constructor(public api: RestApiServiceNotes, public loadingController: LoadingController) { }
 
+    ngOnInit() {
+    console.log("List page");
+    this.getNotes();
+    }
+
+    async getNotes() {
+    const loading = await this.loadingController.create();
+    await loading.present();
+    await this.api.getNotes()
+      .subscribe(res => {
+        console.log(res);
+        this.notes = res;
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
+    }
 }
