@@ -15,6 +15,18 @@ const routes: Routes = [
     path: 'notes',
     loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule)
   },
+  {
+    path: 'note',
+    loadChildren: () => import('./note/note.module').then( m => m.NotePageModule)
+  },
+  {
+  path: 'note/:id',
+  loadChildren: './note/note.module#NotePageModule'
+  },
+  {
+    path: 'categorie',
+    loadChildren: () => import('./categorie/categorie.module').then( m => m.CategoriePageModule)
+  },
 ];
 
 @NgModule({
