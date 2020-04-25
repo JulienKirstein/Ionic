@@ -55,7 +55,7 @@ export class EditNotePage implements OnInit {
 
 
 
-async updateNotes(){
+  async updateNotes(){
   await this.api.updateNotes(this.route.snapshot.paramMap.get('id'), this.noteForm.value)
   .subscribe(res => {
       let id = res['id'];
@@ -63,7 +63,7 @@ async updateNotes(){
     }, (err) => {
       console.log(err);
     });
-}
+ }
 
   ngOnInit() {
   }

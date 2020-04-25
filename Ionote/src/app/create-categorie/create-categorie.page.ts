@@ -23,14 +23,14 @@ export class CreateCategoriePage implements OnInit {
   });
   }
 
-async CreateCategories(){
+  async CreateCategories(){
   await this.api.postCategories(this.categorieForm.value)
   .subscribe(res => {
       this.router.navigate(['/categories']);
     }, (err) => {
       console.log(err);
     });
-}
+  }
 
   ngOnInit() {
   }

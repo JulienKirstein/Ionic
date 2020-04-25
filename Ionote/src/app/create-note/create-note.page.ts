@@ -41,7 +41,7 @@ export class CreateNotePage implements OnInit {
       });
   }
 
-async CreateNotes(){
+  async CreateNotes(){
   this.id_name = this.noteForm.value.category.split('|');
   this.noteForm.value.category = {'id': Number(this.id_name[0]), 'name': this.id_name[1]};
 
@@ -51,7 +51,7 @@ async CreateNotes(){
     }, (err) => {
       console.log(err);
     });
-}
+  }
 
   ngOnInit() {
   }

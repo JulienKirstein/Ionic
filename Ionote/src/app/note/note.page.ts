@@ -34,7 +34,7 @@ export class NotePage implements OnInit {
     });
 }
 
-async delete(id) {
+  async delete(id) {
   const loading = await this.loadingController.create();
   await loading.present();
   await this.api.deleteNotes(id)
