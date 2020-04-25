@@ -49,7 +49,7 @@ export class RestApiServiceCategories {
   }
 
   postCategories(data): Observable<any> {
-    const url = `${apiUrl}/add_with_students`;
+    const url = `${apiUrl}`;
     return this.http.post(url, data, httpOptions)
       .pipe(
         catchError(this.handleError)

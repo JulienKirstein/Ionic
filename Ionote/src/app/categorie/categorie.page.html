@@ -16,7 +16,7 @@
       </ion-item>
       <ion-button shape="round" color="primary" routerLink="/edit-categorie/{{categorie.id}}" >
       <ion-icon slot="icon-only" name="build-outline"></ion-icon></ion-button>
-      <ion-button shape="round" color="danger" routerLink="/edit-categorie/{{categorie.id}}" >
+      <ion-button shape="round" color="danger" routerLink="/categories" (click)="delete(categorie.id)" >
       <ion-icon slot="icon-only" name="trash-outline"></ion-icon></ion-button>
     </ion-card-header>
   </ion-card>

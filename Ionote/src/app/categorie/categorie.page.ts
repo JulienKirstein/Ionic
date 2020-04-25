@@ -32,6 +32,18 @@ export class CategoriePage implements OnInit {
     });
 }
 
+async delete(id) {
+  const loading = await this.loadingController.create();
+  await loading.present();
+  await this.api.deleteCategories(id)
+    .subscribe(res => {
+      loading.dismiss();
+    }, err => {
+      console.log(err);
+      loading.dismiss();
+    });
+}
+
   ngOnInit() {
   this.getCategories();
 }

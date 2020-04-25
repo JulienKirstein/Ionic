@@ -32,19 +32,6 @@ export class EditNotePage implements OnInit {
   });
   }
 
-
-
-
-  /*
-        <ion-select [(ngModel)]="selectedCategoria" id="categoria" name="categoria">
-          <ion-option *ngFor="let categ of categoria" [value]="categ.id">
-             {{categ.nombre_categoria }}
-          </ion-option>
-        </ion-select>
-  */
-
-
-
   async getNotes(id) {
     const loading = await this.loadingController.create();
     await loading.present();
