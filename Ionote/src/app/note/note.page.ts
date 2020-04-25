@@ -3,8 +3,6 @@ import { LoadingController } from '@ionic/angular';
 import { RestApiServiceNotes } from '../rest-api-notes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-note',
   templateUrl: './note.page.html',
@@ -13,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class NotePage implements OnInit {
 
   note: any = {};
+  category: any = {};
 
   constructor(public api: RestApiServiceNotes,
   public loadingController: LoadingController,
@@ -21,14 +20,13 @@ export class NotePage implements OnInit {
 
 
   async getNotes() {
-  const loading = await this.loadingController.create({
-    content: 'Loading'
-  });
+  const loading = await this.loadingController.create();
   await loading.present();
   await this.api.getNotesById(this.route.snapshot.paramMap.get('id'))
     .subscribe(res => {
       console.log(res);
       this.note = res;
+      this.category = res.category;
       loading.dismiss();
     }, err => {
       console.log(err);

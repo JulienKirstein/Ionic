@@ -3,8 +3,6 @@ import { LoadingController } from '@ionic/angular';
 import { RestApiServiceCategories } from '../rest-api-categories.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-categorie',
   templateUrl: './categorie.page.html',
@@ -21,9 +19,7 @@ export class CategoriePage implements OnInit {
 
 
   async getCategories() {
-  const loading = await this.loadingController.create({
-    content: 'Loading'
-  });
+  const loading = await this.loadingController.create();
   await loading.present();
   await this.api.getCategoriesById(this.route.snapshot.paramMap.get('id'))
     .subscribe(res => {
