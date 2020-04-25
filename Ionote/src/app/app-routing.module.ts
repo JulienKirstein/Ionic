@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'edit-note/:id',
     loadChildren: './edit-note/edit-note.module#EditNotePageModule'
+  },
+  {
+    path: 'create-note',
+    loadChildren: () => import('./create-note/create-note.module').then( m => m.CreateNotePageModule)
   }
 ];
 

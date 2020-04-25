@@ -26,7 +26,7 @@
 
       <ion-button shape="round" color="primary" routerLink="/edit-note/{{note.id}}" >
       <ion-icon slot="icon-only" name="build-outline"></ion-icon></ion-button>
-      <ion-button shape="round" color="danger" routerLink="/edit-note/{{note.id}}" >
+      <ion-button shape="round" color="danger" routerLink="/notes" (click)="delete(note.id)" >
       <ion-icon slot="icon-only" name="trash-outline"></ion-icon></ion-button>
     </ion-card-header>
   </ion-card>
