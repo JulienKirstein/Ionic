@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editer une catégorie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+  <form [formGroup]="categorieForm">
+    <ion-item>
+      <ion-label position="floating">Nom: </ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+    <ion-button shape="round" color="danger" routerLink="/categories" >Annuler</ion-button>
+    <ion-button shape="round" color="primary" [disabled]="!categorieForm.valid"  routerLink="/categories" (click)="updateCategories()" >Valider</ion-button>
+
+    </ion-item>
+  </form>
+  </ion-card>
+</ion-content>

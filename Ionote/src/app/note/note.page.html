@@ -10,10 +10,24 @@
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Titre: {{note.title}}</ion-card-title>
-      <ion-card-title>Texte: {{note.content}}</ion-card-title>
+
+      <ion-item>
+      <ion-card-title>Nom: {{note.title}}</ion-card-title>
+      </ion-item>
+      <ion-item>
+      <ion-card-title>Contenu: {{note.content}}</ion-card-title>
+      </ion-item>
+      <ion-item>
       <ion-card-title>Date: {{note.date}}</ion-card-title>
+      </ion-item>
+      <ion-item>
       <ion-card-title>Catégorie: {{category.name}}</ion-card-title>
+      </ion-item>
+
+      <ion-button shape="round" color="primary" routerLink="/edit-note/{{note.id}}" >
+      <ion-icon slot="icon-only" name="build-outline"></ion-icon></ion-button>
+      <ion-button shape="round" color="danger" routerLink="/edit-note/{{note.id}}" >
+      <ion-icon slot="icon-only" name="trash-outline"></ion-icon></ion-button>
     </ion-card-header>
   </ion-card>
 </ion-content>
